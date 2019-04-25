@@ -298,6 +298,12 @@ class TabBarBottom extends React.Component<Props, State> {
     }
   };
 
+  getRoutes = () => {
+    console.log("OLD ONE")
+    const { navigation } = this.props
+    return navigation.state.routes
+  }
+
   render() {
     const {
       navigation,
@@ -311,7 +317,7 @@ class TabBarBottom extends React.Component<Props, State> {
       tabStyle,
     } = this.props;
 
-    const { routes } = navigation.state;
+    const routes = navigation.state.routesOverride || navigation.state.routes
 
     const tabBarStyle = [
       styles.tabBar,
